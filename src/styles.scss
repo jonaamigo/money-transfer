@@ -1,1 +1,42 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~normalize.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  background-image: url("assets/background.jpg");
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container*/
+}
+
+.mat-card{
+  padding: 0px !important;
+  .mat-card-content{
+    padding: 10px
+  }
+  .mat-card-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #0c8397;
+    color: white;
+
+    .mat-card-title {
+      margin-bottom: 12px;
+      margin-top: 12px;
+    }
+
+    .mat-icon {
+      position: absolute;
+      left: 0px;
+      margin: 10px;
+      color: #aed6dc;
+    }
+  }
+}
+
+
+
+
+
+

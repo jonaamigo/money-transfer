@@ -1,3 +1,5 @@
+import { TransactionsModule } from './transactions/transactions.module';
+import { ComponentsModule } from './shared/common/components.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +12,9 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ComponentsModule,
+    TransactionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
