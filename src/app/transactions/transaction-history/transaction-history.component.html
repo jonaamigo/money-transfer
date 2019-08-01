@@ -7,6 +7,85 @@
   </mat-card-header>
 
   <mat-card-content>
-    Text content
+
+    <div class="transaction-history-header">
+      <div class="filter-header">
+
+        <form class="form">
+          <mat-form-field class="full-width" floatLabel="never">
+            <input type="text" placeholder="Free checking (4692) - $5824.76" aria-label="Assignee" matInput
+              [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option.name">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+
+      </div>
+
+      <div class="sort-header">
+        <div class="label">Sort by</div>
+        <div class="buttons">
+          <div class="button">Date</div>
+          <div class="button">Beneficiary</div>
+          <div class="button">Amount</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transaction-content">
+      <div class="transaction-content-item">
+        <div class="color"></div>
+        <div class="data-container">
+          <div class="date">
+            <label>Oct. 17</label>
+          </div>
+          <div class="data">
+            <div class="place">Tesco superstore</div>
+            <label class="type">Card payment</label>
+          </div>
+          <div class="amount">
+            <label>$ 40.00</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="transaction-content-item">
+        <div class="color"></div>
+        <div class="data-container">
+          <div class="date">
+            <label>Oct. 17</label>
+          </div>
+          <div class="data">
+            <div class="place">Tesco superstore</div>
+            <label class="type">Card payment</label>
+          </div>
+          <div class="amount">
+            <label>$ 40.00</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="transaction-content-item">
+        <div class="color"></div>
+        <div class="data-container">
+          <div class="date">
+            <label>Oct. 17</label>
+          </div>
+          <div class="data">
+            <div class="place">Tesco superstore</div>
+            <label class="type">Card payment</label>
+          </div>
+          <div class="amount">
+            <label>$ 40.00</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   </mat-card-content>
 </mat-card>
