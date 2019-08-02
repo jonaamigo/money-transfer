@@ -14,13 +14,13 @@
 
         <form class="form">
           <mat-form-field class="full-width" floatLabel="never">
-            <input matInput placeholder="Search by typing ..." value="">
+            <input name="textFilter" matInput placeholder="Search by typing ..." autocomplete="off" [(ngModel)]="filter" (ngModelChange)=onChangeFilter()>
           </mat-form-field>
         </form>
 
       </div>
 
-      <div class="sort-header">
+      <div class="sort-header noselect">
         <div class="label"  style="font-weight: bold">Sort by</div>
         <div class="buttons">
           <div class="button" (click)='onClickOrderBy("DATE")'>
