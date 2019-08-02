@@ -1,9 +1,17 @@
-.header-container{
+.header-container {
   padding: 10px;
   border-bottom: 2px solid #ff7839;
-  background: white
+  background: white;
 }
 
-.logo{
-  height: 20px ;
+.logo {
+  height: 20px;
+}
+
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+  .header-container {
+    display: flex;
+    justify-content: center;
+  }
 }

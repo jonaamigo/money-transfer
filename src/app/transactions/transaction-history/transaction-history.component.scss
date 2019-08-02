@@ -34,6 +34,14 @@
   }
 }
 
+$breakpoint-tablet: 768px;
+@media (max-width: $breakpoint-tablet) {
+  .transaction-history-header {
+    display: block;
+  }
+}
+
+
 .transaction-content {
   margin-top: 15px;
 }

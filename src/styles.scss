@@ -37,8 +37,6 @@ body {
 }
 
 .form {
-  min-width: 150px;
-  max-width: 500px;
   width: 100%;
 }
 
@@ -107,4 +105,14 @@ app-transaction-history-item:last-child{
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
+}
+
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-tablet) {
+
+
+  .mat-card{
+    border-radius: 0px !important;
+  }
 }
