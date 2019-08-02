@@ -36,50 +36,12 @@
 
 .transaction-content {
   margin-top: 15px;
+}
 
-  .transaction-content-item {
-    display: flex;
-    height: 50px;
+.button{
+  cursor: pointer;
 
-    .color {
-      height: 100%;
-      width: 5px;
-      background-color: brown;
-    }
-
-    .data-container {
-      display: flex;
-      flex-basis: 100%;
-      border-right: 1px solid grey;
-      border-top: 1px solid grey;
-
-      align-items: center;
-      font-size: 13px;
-
-      .date {
-        flex-basis: 15%;
-        text-align: center;
-      }
-      .data {
-        flex-basis: 70%;
-
-        .place {
-          font-weight: bold;
-          font-size: 14;
-        }
-      }
-      .amount {
-        flex-basis: 15%;
-        text-align: center;
-        font-size: 16px;
-        font-weight: bold;
-      }
-    }
-  }
-
-  .transaction-content-item:last-child {
-    .data-container {
-      border-bottom: 1px solid grey;
-    }
+  &:hover{
+    background-color: #ebebeb;
   }
 }

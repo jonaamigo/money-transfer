@@ -47,6 +47,54 @@ body {
 
 
 
+.transaction-content-item {
+  display: flex;
+  height: 50px;
+
+  .color {
+    height: 100%;
+    width: 5px;
+    background-color: black;
+  }
+
+  .data-container {
+    display: flex;
+    flex-basis: 100%;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+
+    align-items: center;
+    font-size: 13px;
+
+    .date {
+      flex-basis: 15%;
+      text-align: center;
+    }
+    .data {
+      flex-basis: 70%;
+
+      .place {
+        font-weight: bold;
+        font-size: 14;
+      }
+    }
+    .amount {
+      flex-basis: 15%;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+app-transaction-history-item:last-child{
+  .transaction-content-item {
+    .data-container {
+      border-bottom: 1px solid grey;
+    }
+  }
+
+}
 
 
 

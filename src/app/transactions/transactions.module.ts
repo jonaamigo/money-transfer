@@ -11,9 +11,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
+import { TransactionsService } from './transactions.service';
+import { TransactionHistoryItemComponent } from './transaction-history/transaction-history-item/transaction-history-item.component';
+import { TransactionTypePipe } from './transaction-type.pipe';
+import { TransactionTypeColorPipe } from './transaction-type-color.pipe';
 
 @NgModule({
-  declarations: [TransferFormComponent, TransactionHistoryComponent],
+  declarations: [TransferFormComponent, TransactionHistoryComponent, TransactionHistoryItemComponent, TransactionTypePipe, TransactionTypeColorPipe],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -21,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule, FormsModule, ReactiveFormsModule, MatAutocompleteModule, MatFormFieldModule,
     MatSelectModule, MatInputModule, MatButtonModule
   ],
-  exports: [TransactionHistoryComponent, TransferFormComponent]
+  exports: [TransactionHistoryComponent, TransferFormComponent],
+  providers: [TransactionsService]
 })
 export class TransactionsModule { }

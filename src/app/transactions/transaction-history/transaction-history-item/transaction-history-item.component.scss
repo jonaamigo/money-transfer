@@ -1,0 +1,15 @@
+.transaction-content-item {
+  display: flex;
+  height: 50px;
+
+  .color{
+    &.blue{
+      background-color: seagreen;
+    }
+    &.red{
+      background-color: skyblue;
+    }
+  }
+}
+
+

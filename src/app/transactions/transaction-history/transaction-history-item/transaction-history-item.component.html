@@ -1,0 +1,15 @@
+<div class="transaction-content-item">
+  <div class="color" [ngClass]="transaction.type | transactionTypeColor"></div>
+  <div class="data-container">
+    <div class="date">
+      <label>{{transaction.date | date:'LLL. d'}}</label>
+    </div>
+    <div class="data">
+      <div class="place">{{transaction.beneficiary}}</div>
+      <label class="type">{{transaction.type | transactionType}}</label>
+    </div>
+    <div class="amount">
+      <label>{{transaction.amount | currency}}</label>
+    </div>
+  </div>
+</div>

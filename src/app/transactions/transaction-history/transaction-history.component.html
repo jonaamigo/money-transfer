@@ -14,85 +14,50 @@
 
         <form class="form">
           <mat-form-field class="full-width" floatLabel="never">
-            <input type="text" placeholder="Free checking (4692) - $5824.76" aria-label="Assignee" matInput
-              [formControl]="myControl" [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let option of options" [value]="option.name">
-                {{option.name}}
-              </mat-option>
-            </mat-autocomplete>
+            <input matInput placeholder="Search by typing ..." value="">
           </mat-form-field>
         </form>
 
       </div>
 
       <div class="sort-header">
-        <div class="label">Sort by</div>
+        <div class="label"  style="font-weight: bold">Sort by</div>
         <div class="buttons">
-          <div class="button">
+          <div class="button" (click)='onClickOrderBy("DATE")'>
             Date
-            <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
+
+            <ng-container *ngIf="orderBy === 'DATE'">
+              <mat-icon *ngIf="!orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_down
+              </mat-icon>
+              <mat-icon *ngIf="orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+            </ng-container>
           </div>
-          <div class="button">
+          <div class="button" (click)='onClickOrderBy("BENEFICIARY")'>
             Beneficiary
-            <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+
+            <ng-container *ngIf="orderBy === 'BENEFICIARY'">
+              <mat-icon *ngIf="!orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_down
+              </mat-icon>
+              <mat-icon *ngIf="orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+            </ng-container>
           </div>
-          <div class="button">Amount</div>
+          <div class="button" (click)='onClickOrderBy("AMOUNT")'>
+            Amount
+
+            <ng-container *ngIf="orderBy === 'AMOUNT'">
+              <mat-icon *ngIf="!orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_down
+              </mat-icon>
+              <mat-icon *ngIf="orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+            </ng-container>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="transaction-content">
-      <div class="transaction-content-item">
-        <div class="color"></div>
-        <div class="data-container">
-          <div class="date">
-            <label>Oct. 17</label>
-          </div>
-          <div class="data">
-            <div class="place">Tesco superstore</div>
-            <label class="type">Card payment</label>
-          </div>
-          <div class="amount">
-            <label>$ 40.00</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="transaction-content-item">
-        <div class="color"></div>
-        <div class="data-container">
-          <div class="date">
-            <label>Oct. 17</label>
-          </div>
-          <div class="data">
-            <div class="place">Tesco superstore</div>
-            <label class="type">Card payment</label>
-          </div>
-          <div class="amount">
-            <label>$ 40.00</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="transaction-content-item">
-        <div class="color"></div>
-        <div class="data-container">
-          <div class="date">
-            <label>Oct. 17</label>
-          </div>
-          <div class="data">
-            <div class="place">Tesco superstore</div>
-            <label class="type">Card payment</label>
-          </div>
-          <div class="amount">
-            <label>$ 40.00</label>
-          </div>
-        </div>
-      </div>
+      <app-transaction-history-item [transaction]="transaction" *ngFor="let transaction of transactions">
+      </app-transaction-history-item>
     </div>
-
-
 
   </mat-card-content>
 </mat-card>
