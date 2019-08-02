@@ -1,14 +1,15 @@
+@import "../../../../styles/global.scss";
+
 .header-container {
   padding: 10px;
-  border-bottom: 2px solid #ff7839;
-  background: white;
+  border-bottom: 2px solid $primary-color;
+  background: $background-color;
 }
 
 .logo {
   height: 20px;
 }
 
-$breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
   .header-container {
     display: flex;

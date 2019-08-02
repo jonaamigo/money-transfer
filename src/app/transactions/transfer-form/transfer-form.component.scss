@@ -1,9 +1,16 @@
 
 
+@import "../../../styles/global.scss";
 
 button{
-  background-color: #ee7033;
+  background-color: $primary-color;
   color: white;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .button-container{

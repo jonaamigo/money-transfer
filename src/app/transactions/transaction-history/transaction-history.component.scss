@@ -1,3 +1,5 @@
+@import "../../../styles/global.scss";
+
 .transaction-history-header {
   display: flex;
   align-items: center;
@@ -34,22 +36,20 @@
   }
 }
 
-$breakpoint-tablet: 768px;
 @media (max-width: $breakpoint-tablet) {
   .transaction-history-header {
     display: block;
   }
 }
 
-
 .transaction-content {
   margin-top: 15px;
 }
 
-.button{
+.button {
   cursor: pointer;
 
-  &:hover{
+  &:hover {
     background-color: #ebebeb;
   }
 }

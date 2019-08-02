@@ -1,6 +1,6 @@
 
 
-$breakpoint-tablet: 768px;
+@import "../styles/global.scss";
 
 @media (min-width: $breakpoint-tablet) {
   .transactions {
@@ -23,6 +23,5 @@ $breakpoint-tablet: 768px;
   .transactions {
     padding: 0px;
     display: block;
-
   }
 }
