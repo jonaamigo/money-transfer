@@ -6,10 +6,21 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class TransactionsService {
 
+
   private transactions: Array<Transaction> = [];
+  private _filteredTransactions: Array<Transaction> = [];
+
+  orderBy = 'DATE';
+  orderByDesc = false;
+  filter: string;
+
 
   getTransactions(): Array<Transaction> {
     return this.transactions;
+  }
+
+  public get filteredTransactions(): Array<Transaction> {
+    return this._filteredTransactions;
   }
 
   constructor() { }
@@ -25,6 +36,7 @@ export class TransactionsService {
     transaction.date = transfer.date;
     transaction.type = 'TRANSFER';
     this.addTransaction(transaction);
+    this.filterTransactions();
   }
 
   init() {
@@ -76,5 +88,50 @@ export class TransactionsService {
       date: new Date(2018, 4, 27),
       type: TransactionTypes.OnlineTransfer
     });
+
+    this.filterTransactions();
+  }
+
+  filterTransactions() {
+    let transactions = this.getTransactions().map(x => ({ ...x }));
+    if (!!this.filter) {
+      transactions = transactions.filter(x => x.beneficiary.toLowerCase().includes(this.filter.toLowerCase()));
+    }
+    transactions.sort((e1, e2) => this.sortFunction(e1, e2, this.orderBy, this.orderByDesc));
+
+    this._filteredTransactions = transactions;
+  }
+
+  sortFunction(e1: Transaction, e2: Transaction, orderBy: string, orderByDesc) {
+    let comp = 0;
+    switch (orderBy) {
+      case 'DATE':
+        comp = e1.date.getTime() - e2.date.getTime();
+        break;
+      case 'BENEFICIARY':
+        comp = ('' + e1.beneficiary).localeCompare(e2.beneficiary);
+        break;
+      case 'AMOUNT':
+        comp = e1.amount - e2.amount;
+        break;
+    }
+
+    if (orderByDesc) {
+      return comp * -1;
+    }
+    return comp;
+  }
+
+  changeOrderBy(orderBy: string) {
+    if (this.orderBy === orderBy) {
+      this.orderByDesc = !this.orderByDesc;
+    }
+    this.orderBy = orderBy;
+    this.filterTransactions();
+  }
+
+  changeFilter(filter: string) {
+    this.filter = filter;
+    this.filterTransactions();
   }
 }

@@ -1,4 +1,4 @@
-import { NumericPositiveValidator, NumericValidator } from './../../shared/validators/numeric-validator';
+import { NumericValidator } from './../../shared/validators/numeric-validator';
 import { TransactionsService } from './../transactions.service';
 import { FormControl, Form, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
