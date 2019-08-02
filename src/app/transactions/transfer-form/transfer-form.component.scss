@@ -1,0 +1,24 @@
+
+
+@import "../../../styles/global.scss";
+
+button{
+  background-color: $primary-color;
+  color: white;
+}
+
+button:disabled,
+button[disabled]{
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.button-container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+h4{
+  margin: 0px;
+  font-size: 12px;
+}

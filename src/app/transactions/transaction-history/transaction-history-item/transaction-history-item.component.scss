@@ -1,0 +1,23 @@
+@import "../../../../styles/global.scss";
+
+.transaction-content-item {
+  display: flex;
+  height: 50px;
+
+  .color{
+    &.blue{
+      background-color: steelblue;
+    }
+    &.red{
+      background-color: indianred;
+    }
+    &.green{
+      background-color: seagreen;
+    }
+  }
+}
+
+
+.transaction-content-item:hover {
+  background: $background-secondary-color;
+}

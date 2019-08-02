@@ -1,0 +1,118 @@
+@import "~normalize.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  background-image: url("assets/background.jpg");
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container*/
+  background-attachment: fixed;
+}
+
+.mat-card{
+  padding: 0px !important;
+  .mat-card-content{
+    padding: 10px
+  }
+  .mat-card-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #0c8397;
+    color: white;
+
+    .mat-card-title {
+      margin-bottom: 12px;
+      margin-top: 12px;
+    }
+
+    .mat-icon {
+      position: absolute;
+      left: 0px;
+      margin: 10px;
+      color: #aed6dc;
+    }
+  }
+}
+
+.form {
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+
+
+.transaction-content-item {
+  display: flex;
+  height: 50px;
+
+  .color {
+    height: 100%;
+    width: 5px;
+    background-color: black;
+  }
+
+  .data-container {
+    display: flex;
+    flex-basis: 100%;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+
+    align-items: center;
+    font-size: 13px;
+
+    .date {
+      flex-basis: 15%;
+      text-align: center;
+    }
+    .data {
+      flex-basis: 70%;
+
+      .place {
+        font-weight: bold;
+        font-size: 14;
+      }
+    }
+    .amount {
+      flex-basis: 15%;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
+
+app-transaction-history-item:last-child{
+  .transaction-content-item {
+    .data-container {
+      border-bottom: 1px solid grey;
+    }
+  }
+
+}
+
+
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+$breakpoint-tablet: 768px;
+
+@media (max-width: $breakpoint-tablet) {
+
+
+  .mat-card{
+    border-radius: 0px !important;
+  }
+}

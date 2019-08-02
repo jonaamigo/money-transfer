@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">sync</mat-icon>
+    <mat-card-title>
+      <label>Make a Transfer</label>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <form [formGroup]="form">
+      <h4>ACCOUNT FROM</h4>
+      <mat-form-field class="full-width">
+        <mat-select formControlName="accountFrom" required>
+          <mat-option *ngFor="let option of accountsFrom" [value]="option.value">
+            {{option.text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <h4>ACCOUNT TO</h4>
+      <mat-form-field class="full-width">
+        <mat-select formControlName="accountTo">
+          <mat-option *ngFor="let option of accountsTo" [value]="option.value">
+            {{option.text}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <h4>AMOUNT</h4>
+      <mat-form-field class="full-width" floatLabel="never">
+        <input formControlName="amount" matInput placeholder="$ 0.00" autocomplete="off">
+      </mat-form-field>
+
+      <div class="button-container">
+        <button mat-button (click)="onClickSubmit()" [disabled]="!form.valid">Submit</button>
+      </div>
+    </form>
+
+
+
+
+  </mat-card-content>
+</mat-card>

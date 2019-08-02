@@ -1,0 +1,18 @@
+@import "../../../../styles/global.scss";
+
+.header-container {
+  padding: 10px;
+  border-bottom: 2px solid $primary-color;
+  background: $background-color;
+}
+
+.logo {
+  height: 20px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .header-container {
+    display: flex;
+    justify-content: center;
+  }
+}

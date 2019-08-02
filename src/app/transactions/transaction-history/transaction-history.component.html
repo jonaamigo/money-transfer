@@ -1,0 +1,64 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon aria-hidden="false" aria-label="Example home icon">business_center</mat-icon>
+
+    <mat-card-title>
+      <label>Recent Transactions</label>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <div class="transaction-history-header">
+      <div class="filter-header">
+
+        <form class="form">
+          <mat-form-field class="full-width" floatLabel="never">
+            <input name="textFilter" matInput placeholder="Search by typing ..." autocomplete="off" [(ngModel)]="filter"
+              (ngModelChange)=onChangeFilter()>
+          </mat-form-field>
+        </form>
+
+      </div>
+
+      <div class="sort-header noselect">
+        <div class="sort-text">Sort by </div>
+        <div class="buttons">
+          <div class="button" (click)='onClickOrderBy("DATE")'>
+            Date
+
+            <ng-container *ngIf="orderBy === 'DATE'">
+              <mat-icon *ngIf="!orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_down
+              </mat-icon>
+              <mat-icon *ngIf="orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+            </ng-container>
+          </div>
+          <div class="button" (click)='onClickOrderBy("BENEFICIARY")'>
+            Beneficiary
+
+            <ng-container *ngIf="orderBy === 'BENEFICIARY'">
+              <mat-icon *ngIf="!orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_down
+              </mat-icon>
+              <mat-icon *ngIf="orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+            </ng-container>
+          </div>
+          <div class="button" (click)='onClickOrderBy("AMOUNT")'>
+            Amount
+
+            <ng-container *ngIf="orderBy === 'AMOUNT'">
+              <mat-icon *ngIf="!orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_down
+              </mat-icon>
+              <mat-icon *ngIf="orderByDesc" aria-hidden="false" aria-label="Example home icon">arrow_drop_up</mat-icon>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="transaction-content">
+      <app-transaction-history-item [transaction]="transaction" *ngFor="let transaction of transactions">
+      </app-transaction-history-item>
+    </div>
+
+  </mat-card-content>
+</mat-card>

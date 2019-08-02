@@ -1,0 +1,60 @@
+@import "../../../styles/global.scss";
+
+.sort-text{
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.transaction-history-header {
+  display: flex;
+  align-items: center;
+
+  .filter-header {
+    flex-basis: 50%;
+  }
+
+  .sort-header {
+    flex-basis: 50%;
+    margin-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .label {
+      margin-right: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      border: 1px solid grey;
+
+      .button {
+        border-right: 1px solid grey;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .button:last-child {
+        border-right: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .transaction-history-header {
+    display: block;
+  }
+}
+
+.transaction-content {
+  margin-top: 15px;
+}
+
+.button {
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-secondary-color;
+  }
+}
