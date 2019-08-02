@@ -4,10 +4,13 @@
 
   .color{
     &.blue{
-      background-color: seagreen;
+      background-color: steelblue;
     }
     &.red{
-      background-color: skyblue;
+      background-color: indianred;
+    }
+    &.green{
+      background-color: seagreen;
     }
   }
 }

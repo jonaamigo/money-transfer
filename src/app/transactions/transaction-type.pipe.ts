@@ -8,6 +8,7 @@ export class TransactionTypePipe implements PipeTransform {
   transactionTypes = {
     CREDIT_CARD: 'Credit card',
     ONLINE_TRANSFER: 'Online transfer',
+    TRANSFER: 'Transfer'
   };
 
   transform(value: any, ...args: any[]): any {

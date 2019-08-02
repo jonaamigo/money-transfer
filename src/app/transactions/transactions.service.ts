@@ -1,3 +1,4 @@
+import { TransactionTypes } from './../shared/model/transaction-types';
 import { Transfer } from './../shared/model/transfer';
 import { Transaction } from './../shared/model/transaction';
 import { Injectable } from '@angular/core';
@@ -31,25 +32,49 @@ export class TransactionsService {
       amount: 100.23,
       beneficiary: 'Tesco',
       date: new Date(2018, 1, 24),
-      type: 'CREDIT_CARD'
+      type: TransactionTypes.CreditCard
     });
     this.transactions.push({
       amount: 23.40,
       beneficiary: 'Lidl',
       date: new Date(2018, 1, 25),
-      type: 'CREDIT_CARD'
+      type: TransactionTypes.CreditCard
     });
     this.transactions.push({
       amount: 23.23,
       beneficiary: 'Lidl',
       date: new Date(2018, 1, 25),
-      type: 'CREDIT_CARD'
+      type: TransactionTypes.Transfer
     });
     this.transactions.push({
       amount: 500.23,
       beneficiary: 'Amazon online store',
-      date: new Date(2018, 3, 25),
-      type: 'ONLINE_TRANSFER'
+      date: new Date(2018, 3, 20),
+      type: TransactionTypes.OnlineTransfer
+    });
+    this.transactions.push({
+      amount: 300.54,
+      beneficiary: 'eBay',
+      date: new Date(2018, 3, 30),
+      type: TransactionTypes.Transfer
+    });
+    this.transactions.push({
+      amount: 500.23,
+      beneficiary: 'Amazon online store',
+      date: new Date(2018, 2, 25),
+      type: TransactionTypes.OnlineTransfer
+    });
+    this.transactions.push({
+      amount: 99,
+      beneficiary: 'Amadeus',
+      date: new Date(2018, 2, 3),
+      type: TransactionTypes.CreditCard
+    });
+    this.transactions.push({
+      amount: 99,
+      beneficiary: 'Amadeus',
+      date: new Date(2018, 4, 27),
+      type: TransactionTypes.OnlineTransfer
     });
   }
 }
