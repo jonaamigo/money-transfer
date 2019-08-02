@@ -1,5 +1,10 @@
 @import "../../../styles/global.scss";
 
+.sort-text{
+  font-weight: bold;
+  margin-right: 5px;
+}
+
 .transaction-history-header {
   display: flex;
   align-items: center;
@@ -50,6 +55,6 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #ebebeb;
+    background-color: $background-secondary-color;
   }
 }

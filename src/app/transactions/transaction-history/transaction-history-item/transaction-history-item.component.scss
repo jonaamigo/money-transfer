@@ -1,3 +1,5 @@
+@import "../../../../styles/global.scss";
+
 .transaction-content-item {
   display: flex;
   height: 50px;
@@ -16,3 +18,6 @@
 }
 
 
+.transaction-content-item:hover {
+  background: $background-secondary-color;
+}
