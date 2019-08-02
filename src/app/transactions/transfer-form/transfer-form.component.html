@@ -8,10 +8,10 @@
 
   <mat-card-content>
 
-    <form class="form">
+    <form [formGroup]="form">
       <h4>ACCOUNT FROM</h4>
       <mat-form-field class="full-width">
-        <mat-select name="acountFrom" [(ngModel)]="accountFrom" >
+        <mat-select formControlName="accountFrom" required>
           <mat-option *ngFor="let option of accountsFrom" [value]="option.value">
             {{option.text}}
           </mat-option>
@@ -20,7 +20,7 @@
 
       <h4>ACCOUNT TO</h4>
       <mat-form-field class="full-width">
-        <mat-select name="accountTo" [(ngModel)]="accountTo" >
+        <mat-select formControlName="accountTo">
           <mat-option *ngFor="let option of accountsTo" [value]="option.value">
             {{option.text}}
           </mat-option>
@@ -30,13 +30,12 @@
 
       <h4>AMOUNT</h4>
       <mat-form-field class="full-width" floatLabel="never">
-        <input name="amount" matInput placeholder="$ 0.00" [(ngModel)]="amount">
+        <input formControlName="amount" matInput placeholder="$ 0.00" autocomplete="off">
       </mat-form-field>
 
       <div class="button-container">
-        <button mat-button (click)="onClickSubmit()">Submit</button>
+        <button mat-button (click)="onClickSubmit()" [disabled]="!form.valid">Submit</button>
       </div>
-
     </form>
 
 

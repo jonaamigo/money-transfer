@@ -1,5 +1,6 @@
+import { NumericPositiveValidator, NumericValidator } from './../../shared/validators/numeric-validator';
 import { TransactionsService } from './../transactions.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, Form, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Transfer } from 'src/app/shared/model/transfer';
 
@@ -20,20 +21,24 @@ export class TransferFormComponent implements OnInit {
     { text: 'Account to 1', value: 1 },
     { text: 'Account to 2', value: 2 }
   ];
-  accountFrom: number;
-  accountTo: number;
-  amount: string;
+
+  form: FormGroup;
 
   constructor(private transactionsService: TransactionsService) { }
 
   ngOnInit() {
+    this.form = new FormGroup({
+      accountFrom: new FormControl('', [Validators.required]),
+      accountTo: new FormControl('', [Validators.required]),
+      amount: new FormControl('', [Validators.required, NumericValidator.numeric, NumericValidator.positive])
+    });
   }
 
   onClickSubmit() {
     const transfer = new Transfer();
-    transfer.accountFrom = this.accountsFrom[this.accountFrom].text;
-    transfer.accountTo = this.accountsTo[this.accountTo].text;
-    transfer.amount = Number(this.amount);
+    transfer.accountFrom = this.accountsFrom[this.form.get('accountFrom').value].text;
+    transfer.accountTo = this.accountsTo[this.form.get('accountTo').value].text;
+    transfer.amount = Number(this.form.get('amount').value);
     transfer.date = new Date();
     this.transactionsService.addTransfer(transfer);
   }
